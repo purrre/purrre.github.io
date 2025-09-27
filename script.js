@@ -53,22 +53,36 @@ async function fetchDiscord() {
       : `https://cdn.discordapp.com/embed/avatars/0.png`;
 
     document.getElementById("discord-avatar").src = avatarURL;
-    document.getElementById("discord-name").textContent =
-      d.discord_user.username;
+    document.getElementById("discord-name").textContent = d.discord_user.username;
 
-    const statusMap = {
-      online: "🟢",
-      idle: "🌙",
-      dnd: "⛔",
-      offline: "⚫"
-    };
-    document.getElementById("discord-status").textContent =
-      statusMap[d.discord_status] || d.discord_status;
+    const statusEl = document.getElementById("discord-status");
+    statusEl.className = `status ${d.discord_status}`;
 
-    const activity = d.activities && d.activities.length > 0 ? d.activities[0].name : "None";
-    document.getElementById("discord-activity").textContent = "Activity: " + activity;
+    const activityEl = document.getElementById("discord-activity");
+    if (d.activities && d.activities.length > 0) {
+      const activity = d.activities[0];
+      const activityText = activity.name;
+      let activityPrefix = "Listening to";
+      
+      if (activity.type === 2) {
+        activityPrefix = "Listening to";
+      } else if (activity.type === 0) {
+        activityPrefix = "Playing";
+      } else if (activity.type === 3) {
+        activityPrefix = "Watching";
+      } else if (activity.type === 1) {
+        activityPrefix = "Streaming";
+      }
+      
+      activityEl.textContent = `${activityPrefix} ${activityText}`;
+    } else {
+      activityEl.textContent = "Idling";
+    }
   } catch (err) {
-    console.error("Error fetching Discord data:", err);
+    console.error(err);
+    document.getElementById("discord-name").textContent = "purree";
+    document.getElementById("discord-status").className = "status offline";
+    document.getElementById("discord-activity").textContent = "Idling";
   }
 }
 
