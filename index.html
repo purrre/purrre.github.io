@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pure.</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .centered-title { display: inline-block; text-align: center; }
+
+        .header-title { font-size: 3rem; font-weight: 700; }
+        .section-title { font-size: 1.875rem; font-weight: 600; }
+
+        #typing { min-height: 1.75rem; }
+
+        .card-bg { background-color: rgba(30,30,30,0.85); }
+        .contact-card { background-color: rgba(35,35,35,0.85); border: none; }
+
+        #stars {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: #000;
+        }
+    </style>
+</head>
+<body class="bg-zinc-900 text-white min-h-screen p-8">
+
+    <canvas id="stars"></canvas>
+
+    <div class="max-w-6xl mx-auto p-8 card-bg rounded-xl shadow-2xl space-y-16">
+
+        <div class="max-w-5xl mx-auto space-y-16">
+
+            <header class="text-center space-y-3">
+                <h1 class="header-title">Hi, I'm <span class="text-purple-500">Pure.</span></h1>
+                <p id="typing" class="text-xl text-gray-400"></p>
+            </header>
+
+            <section class="flex justify-center">
+                <div id="discord-card" class="flex items-center card-bg rounded-lg p-5 shadow-lg space-x-4 max-w-md w-full">
+                    <div class="relative">
+                        <img id="discord-avatar" src="https://cdn.discordapp.com/embed/avatars/0.png" alt="Avatar" class="w-16 h-16 rounded-full">
+                        <span id="discord-status" class="absolute bottom-0 right-0 w-5 h-5 bg-red-500 border-4 border-zinc-900 rounded-full" title="Do Not Disturb"></span>
+                    </div>
+                    <div class="flex-1 min-w-0">
+                        <h2 id="discord-name" class="text-lg font-semibold truncate">Loading...</h2>
+                        <p id="discord-activity" class="text-sm text-gray-400 truncate">Activity: Loading...</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="space-y-4">
+                <h2 class="section-title border-b-2 border-purple-500 inline-block pb-1">About Me</h2>
+                <p class="text-gray-300 leading-relaxed">
+                    > I'm Pure. I go by many variations of the word.<br><br>
+                    I started programming with LuaU in 2019, and since then I've learned Python, JavaScript, and general Lua alongside other small things. My favorite language is Python of course.
+                    I'm currently learning Full Stack and playing with AI and Automation. I enjoy having fun making things that others can use for free,
+                    and I LOVE working with APIs (especially REST). I don't do commission work anymore, however you can contact me if you want to discuss anything.
+                </p>
+            </section>
+
+            <section class="space-y-4">
+                <div class="text-center">
+                    <h2 class="section-title border-b-2 border-purple-500 pb-1 centered-title">Skills</h2>
+                </div>
+                <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-6">
+                    <div class="flex flex-col items-center gap-2"><img src="https://skillicons.dev/icons?i=python" alt="Python" class="w-12 h-12"><span class="text-sm text-gray-300">Python</span></div>
+                    <div class="flex flex-col items-center gap-2"><img src="https://skillicons.dev/icons?i=lua" alt="Lua" class="w-12 h-12"><span class="text-sm text-gray-300">Lua</span></div>
+                    <div class="flex flex-col items-center gap-2"><img src="https://skillicons.dev/icons?i=js" alt="JavaScript" class="w-12 h-12"><span class="text-sm text-gray-300">JavaScript</span></div>
+                    <div class="flex flex-col items-center gap-2"><img src="https://skillicons.dev/icons?i=mysql" alt="MySQL" class="w-12 h-12"><span class="text-sm text-gray-300">MySQL</span></div>
+                    <div class="flex flex-col items-center gap-2"><img src="https://skillicons.dev/icons?i=postgres" alt="PostgreSQL" class="w-12 h-12"><span class="text-sm text-gray-300">PostgreSQL</span></div>
+                    <div class="flex flex-col items-center gap-2"><img src="https://skillicons.dev/icons?i=sqlite" alt="SQLite" class="w-12 h-12"><span class="text-sm text-gray-300">SQLite</span></div>
+                    <div class="flex flex-col items-center gap-2"><img src="https://skillicons.dev/icons?i=htmx" alt="Automation" class="w-12 h-12"><span class="text-sm text-gray-300">Automation</span></div>
+                    <div class="flex flex-col items-center gap-2"><img src="https://skillicons.dev/icons?i=discord" alt="Discord" class="w-12 h-12"><span class="text-sm text-gray-300">Discord</span></div>
+                    <div class="flex flex-col items-center gap-2"><img src="https://skillicons.dev/icons?i=docker" alt="Docker" class="w-12 h-12"><span class="text-sm text-gray-300">Docker</span></div>
+                    <div class="flex flex-col items-center gap-2"><img src="https://skillicons.dev/icons?i=git" alt="Git" class="w-12 h-12"><span class="text-sm text-gray-300">Git</span></div>
+                    <div class="flex flex-col items-center gap-2"><img src="https://skillicons.dev/icons?i=linux" alt="Linux" class="w-12 h-12"><span class="text-sm text-gray-300">Linux</span></div>
+                </div>
+            </section>
+
+            <section class="space-y-4">
+                <div class="text-center">
+                    <h2 class="section-title border-b-2 border-purple-500 pb-1 centered-title">My Projects 💖</h2>
+                </div>
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+
+                    <div class="card-bg rounded-lg overflow-hidden shadow-lg flex flex-col hover:scale-[1.03] transition-transform duration-300">
+                        <img src="https://images.ctfassets.net/lzny33ho1g45/2olcy4TVSWAjqy5dsxLNZd/09b4a18346af97076615d5f1d1407c39/best-ai-image-generator-hero.jpg?fm=jpg&q=31&fit=thumb&w=1520&h=760" alt="GPT4U" class="w-full h-36 object-cover">
+                        <div class="p-4 flex-1 flex flex-col">
+                            <h3 class="text-lg font-semibold mb-1">GPT4U</h3>
+                            <p class="text-gray-400 text-xs mb-3 flex-1">Work in progress Python project aimed to give people free access to AI, because I believe humans should have it.</p>
+                            <a href="https://github.com/purrre/GPT4U" target="_blank" class="text-purple-400 hover:text-purple-300 transition text-sm">GitHub →</a>
+                        </div>
+                    </div>
+
+                    <div class="card-bg rounded-lg overflow-hidden shadow-lg flex flex-col hover:scale-[1.03] transition-transform duration-300">
+                        <img src="media/wrld.jpg" alt="wrld" class="w-full h-36 object-cover">
+                        <div class="p-4 flex-1 flex flex-col">
+                            <h3 class="text-lg font-semibold mb-1">wrld</h3>
+                            <p class="text-gray-400 text-xs mb-3 flex-1">Discord bot to get Juice WRLD information via juicewrldapi.com, written in Python</p>
+                            <div class="flex gap-4">
+                                <a href="https://github.com/purrre/wrld-bot" target="_blank" class="text-purple-400 hover:text-purple-300 transition text-sm">GitHub →</a>
+                                <a href="https://discord.com/oauth2/authorize?client_id=806666114666725378&permissions=563364418145344&integration_type=0&scope=bot" target="_blank" class="text-purple-400 hover:text-purple-300 transition text-sm">Invite →</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-bg rounded-lg overflow-hidden shadow-lg flex flex-col hover:scale-[1.03] transition-transform duration-300">
+                        <img src="https://mac.eltima.com/wp-content/uploads/2023/01/mpv.jpg" alt="MPV Things" class="w-full h-36 object-cover">
+                        <div class="p-4 flex-1 flex flex-col">
+                            <h3 class="text-lg font-semibold mb-1">MPV Things</h3>
+                            <p class="text-gray-400 text-xs mb-3 flex-1">A collection of batch and lua scripts I've created for the MPV media player</p>
+                            <a href="https://github.com/purrre/mpv-scripts" target="_blank" class="text-purple-400 hover:text-purple-300 transition text-sm">GitHub →</a>
+                        </div>
+                    </div>
+
+                    <div class="card-bg rounded-lg overflow-hidden shadow-lg flex flex-col hover:scale-[1.03] transition-transform duration-300">
+                        <img src="media/2b2w.png" alt="2b2w" class="w-full h-36 object-cover">
+                        <div class="p-4 flex-1 flex flex-col">
+                            <h3 class="text-lg font-semibold mb-1">2b2w</h3>
+                            <p class="text-gray-400 text-xs mb-3 flex-1">Utility bot for 2b2w.org, a small Minecraft network I co-own. Runs fully externally</p>
+                            <span class="text-gray-500 text-xs">Private</span>
+                        </div>
+                    </div>
+
+                    <div class="card-bg rounded-lg overflow-hidden shadow-lg flex flex-col hover:scale-[1.03] transition-transform duration-300">
+                        <img src="media/mercury.jpeg" alt="Mercury" class="w-full h-36 object-cover">
+                        <div class="p-4 flex-1 flex flex-col">
+                            <h3 class="text-lg font-semibold mb-1">Mercury</h3>
+                            <p class="text-gray-400 text-xs mb-3 flex-1">Entertainment/Engagement bot for Discord with the goal of upping user engagement in your server. Unfortunately discontinued.</p>
+                            <div class="flex gap-4 items-center">
+                                <a href="https://github.com/purrre/mercury" target="_blank" class="text-purple-400 hover:text-purple-300 transition text-sm">GitHub →</a>
+                                <span class="text-gray-500 text-xs">Invite</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-bg rounded-lg overflow-hidden shadow-lg flex flex-col hover:scale-[1.03] transition-transform duration-300">
+                        <img src="media/releasetracker.png" alt="Release Tracker" class="w-full h-36 object-cover">
+                        <div class="p-4 flex-1 flex flex-col">
+                            <h3 class="text-lg font-semibold mb-1">Release Tracker</h3>
+                            <p class="text-gray-400 text-xs mb-3 flex-1">A Discord bot to track new releases for PaperMC, Java Edition, Bedrock Edition, and Bedrock Dedicated Server (BDS)</p>
+                            <span class="text-gray-500 text-xs">Private</span>
+                        </div>
+                    </div>
+
+                    <div class="card-bg rounded-lg overflow-hidden shadow-lg flex flex-col hover:scale-[1.03] transition-transform duration-300">
+                        <img src="https://placehold.co/600x400?text=Placeholder" alt="Build Archive" class="w-full h-36 object-cover">
+                        <div class="p-4 flex-1 flex flex-col">
+                            <h3 class="text-lg font-semibold mb-1">Build Archive</h3>
+                            <p class="text-gray-400 text-xs mb-3 flex-1">Service that archives builds created on the 2b2w network. Runs a clean website to view builds along with a public API. Coming Soon</p>
+                            <div class="flex gap-4 items-center">
+                              <a href="https://github.com/purrre/mpv-scripts" target="_blank" class="text-purple-400 hover:text-purple-300 transition text-sm">GitHub →</a>
+                              <span class="text-gray-500 text-xs">Website → (soon)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-bg rounded-lg overflow-hidden shadow-lg flex flex-col hover:scale-[1.03] transition-transform duration-300">
+                        <img src="media/DUK.jpg" alt="Placeholder Project" class="w-full h-36 object-cover">
+                        <div class="p-4 flex-1 flex flex-col">
+                            <h3 class="text-lg font-semibold mb-1">DUK</h3>
+                            <p class="text-gray-400 text-xs mb-3 flex-1">Private server management bot created for TDC; Join the Discord below</p>
+                            <div class="flex gap-4 items-center">
+                                <span class="text-gray-500 text-xs">Private</span>
+                                <span class="text-gray-500 text-xs">Discord → (coming soon)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="space-y-4">
+                <h2 class="section-title border-b-2 border-purple-500 inline-block pb-1">Contact</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+
+                    <div class="contact-card rounded-lg p-4 shadow-lg flex flex-col space-y-2">
+                        <div class="flex items-center gap-2">
+                            <img src="https://cdn.brandfetch.io/idM8Hlme1a/theme/dark/symbol.svg" alt="Discord Icon" class="w-7 h-7">
+                            <h3 class="text-lg font-semibold">Discord</h3>
+                        </div>
+                        <p class="text-gray-400 text-xs flex-1">Message me on Discord</p>
+                        <a href="https://discord.com/users/527172619514937354" target="_blank" class="text-purple-400 hover:text-purple-300 transition text-sm font-medium">Go →</a>
+                    </div>
+
+                    <div class="contact-card rounded-lg p-4 shadow-lg flex flex-col space-y-2">
+                        <div class="flex items-center gap-2">
+                            <img src="https://cdn.brandfetch.io/idZAyF9rlg/theme/light/symbol.svg" alt="GitHub Icon" class="w-7 h-7">
+                            <h3 class="text-lg font-semibold">GitHub</h3>
+                        </div>
+                        <p class="text-gray-400 text-xs flex-1">View my projects & repositories</p>
+                        <a href="https://github.com/purrre" target="_blank" class="text-purple-400 hover:text-purple-300 transition text-sm font-medium">Visit →</a>
+                    </div>
+
+                    <div class="contact-card rounded-lg p-4 shadow-lg flex flex-col space-y-2">
+                        <div class="flex items-center gap-2">
+                            <img src="https://cdn.brandfetch.io/idQMCIvout/w/1139/h/926/theme/dark/logo.png" alt="Twitter Icon" class="w-7 h-7">
+                            <h3 class="text-lg font-semibold">Twitter</h3>
+                        </div>
+                        <p class="text-gray-400 text-xs flex-1">Message me on Twitter/X</p>
+                        <a href="https://x.com/purezeroh" target="_blank" class="text-purple-400 hover:text-purple-300 transition text-sm font-medium">Visit →</a>
+                    </div>
+
+                    <div class="contact-card rounded-lg p-4 shadow-lg flex flex-col space-y-2">
+                        <div class="flex items-center gap-2">
+                            <img src="https://cdn.brandfetch.io/idG21jby45/theme/dark/symbol.svg" alt="Email Icon" class="w-7 h-7">
+                            <h3 class="text-lg font-semibold">Email</h3>
+                        </div>
+                        <p class="text-gray-400 text-xs flex-1">Email Me</p>
+                        <a href="mailto:purrre@proton.me" class="text-purple-400 hover:text-purple-300 transition text-sm font-medium">Go →</a>
+                    </div>
+
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
